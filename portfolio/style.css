@@ -1,0 +1,258 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 56px; /* Adjust for fixed-top navbar height */
+    display: flex; /* Use flexbox for sticky footer */
+    flex-direction: column; /* Arrange content vertically */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    background:#1a1a1a !important; 
+    color: #f8f9fa;
+}
+
+/* Navbar specific styles */
+.navbar {
+    background-color: #1a1a1a !important; /* Dark background for navbar */
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: #28a745 !important; /* Green brand color */
+}
+
+.nav-link {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75) !important; /* Lighter nav links */
+    transition: color 0.3s ease;
+}
+
+    .nav-link:hover {
+        color: #28a745 !important; /* Green on hover */
+    }
+
+/* Hero Section styles */
+#hero {
+    /* Hero background remains as is, with its own overlay */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero1.jpg') no-repeat center center;
+    background-size: cover;
+    height: 80vh; /* Make it take up more vertical space */
+    color: #fff;
+    position: relative;
+    overflow: hidden; /* Ensure content doesn't spill */
+}
+
+.hero-content {
+    z-index: 1; /* Ensure content is above background overlay */
+    padding: 20px;
+}
+
+#typed-output {
+    min-height: 80px; /* Ensure space for typing effect */
+    color: #28a745; /* Green color for typed text */
+}
+
+/* About Section styles */
+#about {
+    background-color: transparent; /* Transparent to show body gradient */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: #f8f9fa; /* Light text for about section */
+}
+
+    #about .container {
+        /* Solid dark background for the about container, blending with gradient */
+        background-color: #212121;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
+    }
+
+.profile-img {
+    max-width: 250px;
+    height: auto;
+    border: 5px solid #28a745; /* Green border around profile image */
+}
+
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cccccc; /* Lighter text for readability on dark background */
+}
+
+/* Skills Section styles */
+#skills {
+    flex-grow: 1; /* Allow projects section to grow and push footer down */
+    background-color: transparent; /* Transparent to show body gradient */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+#skills .container {
+    /* Solid dark background for the skills container, blending with gradient */
+    background-color: #212121;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow */
+}
+
+#skills .card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #2c2c2c !important; /* Darker skill card background */
+    color: #e9ecef !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#skills .card-body {
+    padding: 1rem;
+}
+
+.skill-icon {
+font-size: 3rem;
+margin-bottom: 10px;
+transition: transform 0.3s ease;
+}
+
+.skill-icon:hover {
+    transform: scale(1.1);
+}
+
+.progress {
+background-color: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar {
+border-radius: 5px;
+}
+
+/* Footer specific styles */
+.footer {
+    background-color: #1a1a1a !important; /* Solid dark background for footer */
+    color: rgba(255, 255, 255, 0.7); /* Lighter text color */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 5px solid #28a745; /* Green top border for emphasis */
+}
+
+    .footer p {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+    }
+
+.social-icons .social-icon {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+    .social-icons .social-icon:hover {
+        color: #28a745 !important;
+        transform: translateY(-3px);
+    }
+
+
+/* Project Page */
+
+#projects {
+    background-color: transparent;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: #f8f9fa;
+    flex-grow: 1; /* Ensure this is still present for sticky footer */
+}
+
+    #projects .container {
+        background-color: #212121; /* Keep the container background consistent */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    #projects .card {
+        background-color: #2c2c2c; 
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        margin-bottom: 15px; 
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+        height: 100%; /* Ensure cards in a row have equal height */
+        display: flex; /* Use flex to align content within card */
+        flex-direction: column; /* Stack content vertically */
+        
+    }
+
+        #projects .card:hover {
+            transform: translateY(-8px); /* More pronounced lift on hover */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+            background-color: #343a40; /* Darker on hover */
+        }
+
+    #projects .card-body {
+        padding: 25px; /* Increased padding inside card body */
+        flex-grow: 1; /* Allow card body to take available space */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Push description and table apart if needed */
+    }
+.project-toggle {
+    cursor: pointer;
+    text-decoration: none; /* Remove default underline */
+    color: #28a745; /* Make the title green by default */
+    font-size: 1.5rem; /* Slightly larger title */
+    margin-bottom: 15px; /* Space below title */
+    display: block; /* Ensure full click area */
+    transition: color 0.3s ease;
+}
+
+    .project-toggle:hover {
+        color: #2ecc40 !important; /* Brighter green on hover */
+    }
+
+.project-details {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px; /* More padding above border */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    .project-details table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px; /* Space above table */
+    }
+
+    .project-details td {
+        padding: 10px 0; /* More padding for table cells */
+        vertical-align: top;
+        font-size: 0.95rem; /* Slightly larger text */
+        line-height: 1.6;
+        color: #cccccc; /* Lighter text for details */
+    }
+
+        .project-details td:first-child {
+            font-weight: bold;
+            width: 25%; /* Adjust width for consistency */
+            min-width: 90px;
+            color: #e0e0e0; /* Brighter color for labels */
+        }
+
+
+/* Contact Page Specific Styles (from contact.html) */
+#contact {
+    background-color: transparent; /* Transparent to show body gradient */
+    flex-grow: 1;
+    padding-top: 5rem; /* Adjust padding for contact section */
+    padding-bottom: 5rem;
+}
+
+    #contact .container form {
+        background-color: #212121 !important; /* Solid dark background for the form */
+        color: #f8f9fa !important; /* Light text for form */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    #contact .form-label {
+        color: #e9ecef; /* Ensure labels are light on dark form */
+    }
