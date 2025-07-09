@@ -19,11 +19,42 @@ $(document).ready(function () {
 
 
 //Projects page scripts
-//Animating the projects page
-$('.project-toggle').click( function () {
-  
-    $(this).next('.project-details').slideToggle();
-});
+
+//blur and bring into focus
+    $(document).ready(function () {
+        // Make the entire .col-md-4 clickable
+        $('.col-md-4').click(function () {
+            const card = $(this);
+            const container = $('.projects-blur');
+
+            if (card.hasClass('focused')) {
+                card.removeClass('focused');
+                container.removeClass('blur-active');
+            } else {
+                // Remove the 'focused' class from any other card
+                $('.col-md-4.focused').removeClass('focused');
+
+                // Add the 'focused' class to the clicked card
+                card.addClass('focused');
+
+                // Add the 'blur-active' class to the container
+                container.addClass('blur-active');
+            }
+        });
+
+        // Clicking outside the focused card to close it
+        $(document).click(function (event) {
+            // If the click is outside the .col-md-4 container, close the focused card
+            if (!$(event.target).closest('.col-md-4').length) {
+                $('.col-md-4.focused').removeClass('focused');
+                $('.projects-blur').removeClass('blur-active');
+            }
+        });
+    });
+
+
+
+
 
 //Contact page scripts
 // Handle form submission

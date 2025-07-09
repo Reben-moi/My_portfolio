@@ -1,258 +1,410 @@
 body {
     font-family: 'Poppins', sans-serif;
-    padding-top: 56px; /* Adjust for fixed-top navbar height */
-    display: flex; /* Use flexbox for sticky footer */
-    flex-direction: column; /* Arrange content vertically */
-    min-height: 100vh; /* Ensure body takes at least full viewport height */
-    background:#1a1a1a !important; 
-    color: #f8f9fa;
+    padding-top: 56px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #b0b0b0 !important; /* Dark white background */
+    color: #333; /* Adjust text color to a darker shade for contrast */
 }
 
-/* Navbar specific styles */
+/* Global Block Typography */
+h1, h2, h3, h4, h5, h6,
+.navbar .nav-link,
+.navbar-brand,
+.logo a,
+.btn {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-container {
+    padding-left: 105px;
+    padding-right: 105px;
+}
+
+/* Navbar */
 .navbar {
-    background-color: #1a1a1a !important; /* Dark background for navbar */
+    background-color: #b0b0b0 !important; /* Dark white background */
 }
 
 .navbar-brand {
-    font-weight: 600;
-    color: #28a745 !important; /* Green brand color */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 28px; 
 }
 
+    .navbar-brand span.white-dot {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+.navbar-toggler {
+    border-color: #cc6600;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23d35400' viewBox='0 0 30 30'%3e%3cpath stroke='%23d35400' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
 .nav-link {
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.75) !important; /* Lighter nav links */
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.75) !important; /* Adjusted color for visibility on light background */
     transition: color 0.3s ease;
 }
 
     .nav-link:hover {
-        color: #28a745 !important; /* Green on hover */
+        color: #cc6600 !important;
     }
 
-/* Hero Section styles */
+.logo a {
+    color: #cc6600;
+    text-decoration: none;
+}
+
+/* Hero */
 #hero {
-    /* Hero background remains as is, with its own overlay */
+    position: relative;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero1.jpg') no-repeat center center;
     background-size: cover;
-    height: 80vh; /* Make it take up more vertical space */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
-    position: relative;
-    overflow: hidden; /* Ensure content doesn't spill */
+    border-radius: 10px;
+    overflow: hidden;
+    padding-top: 56px;
 }
+
+    #hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom right, rgba(230, 126, 34, 0.2), rgba(0, 0, 0, 0.4)); /* Slightly more transparent gradient */
+        z-index: 0;
+        pointer-events: none;
+    }
 
 .hero-content {
-    z-index: 1; /* Ensure content is above background overlay */
-    padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
-#typed-output {
-    min-height: 80px; /* Ensure space for typing effect */
-    color: #28a745; /* Green color for typed text */
-}
 
-/* About Section styles */
+
+/* About */
 #about {
-    background-color: transparent; /* Transparent to show body gradient */
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    color: #f8f9fa; /* Light text for about section */
+    background-color: transparent;
+    padding-top: 64px; /* 4rem converted to px */
+    padding-bottom: 64px; /* 4rem converted to px */
+    color: #e67e22;
 }
 
     #about .container {
-        /* Solid dark background for the about container, blending with gradient */
-        background-color: #212121;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
-    }
-
-.profile-img {
-    max-width: 250px;
-    height: auto;
-    border: 5px solid #28a745; /* Green border around profile image */
-}
-
-#about p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #cccccc; /* Lighter text for readability on dark background */
-}
-
-/* Skills Section styles */
-#skills {
-    flex-grow: 1; /* Allow projects section to grow and push footer down */
-    background-color: transparent; /* Transparent to show body gradient */
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-#skills .container {
-    /* Solid dark background for the skills container, blending with gradient */
-    background-color: #212121;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow */
-}
-
-#skills .card {
-    margin-bottom: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: #2c2c2c !important; /* Darker skill card background */
-    color: #e9ecef !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-#skills .card-body {
-    padding: 1rem;
-}
-
-.skill-icon {
-font-size: 3rem;
-margin-bottom: 10px;
-transition: transform 0.3s ease;
-}
-
-.skill-icon:hover {
-    transform: scale(1.1);
-}
-
-.progress {
-background-color: rgba(255, 255, 255, 0.2);
-}
-
-.progress-bar {
-border-radius: 5px;
-}
-
-/* Footer specific styles */
-.footer {
-    background-color: #1a1a1a !important; /* Solid dark background for footer */
-    color: rgba(255, 255, 255, 0.7); /* Lighter text color */
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-top: 5px solid #28a745; /* Green top border for emphasis */
-}
-
-    .footer p {
-        margin-bottom: 0;
-        font-size: 0.9rem;
-    }
-
-.social-icons .social-icon {
-    font-size: 1.6rem;
-    color: rgba(255, 255, 255, 0.7);
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-    .social-icons .social-icon:hover {
-        color: #28a745 !important;
-        transform: translateY(-3px);
-    }
-
-
-/* Project Page */
-
-#projects {
-    background-color: transparent;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    color: #f8f9fa;
-    flex-grow: 1; /* Ensure this is still present for sticky footer */
-}
-
-    #projects .container {
-        background-color: #212121; /* Keep the container background consistent */
+        background-color: rgba(33, 33, 33, 0.85); /* Slight transparency for containers */
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    #projects .card {
-        background-color: #2c2c2c; 
-        border: 1px solid rgba(255, 255, 255, 0.1);
+.profile-img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border: 5px solid #e67e22;
+}
+
+#about p {
+    font-size: 18px; /* 1.1rem converted to px */
+    line-height: 1.8;
+    color: #cccccc;
+}
+
+.text-success {
+    color: #e67e22 !important;
+    text-decoration: underline;
+}
+
+/* Skills */
+#skills {
+    flex-grow: 1;
+    background-color: transparent;
+    padding-top: 48px; /* 3rem converted to px */
+    padding-bottom: 48px; /* 3rem converted to px */
+}
+
+    #skills .container {
+        background-color: rgba(33, 33, 33, 0.85); /* Same effect for skills section */
+        padding: 30px;
         border-radius: 10px;
-        margin-bottom: 15px; 
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
-        height: 100%; /* Ensure cards in a row have equal height */
-        display: flex; /* Use flex to align content within card */
-        flex-direction: column; /* Stack content vertically */
-        
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-        #projects .card:hover {
-            transform: translateY(-8px); /* More pronounced lift on hover */
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
-            background-color: #343a40; /* Darker on hover */
-        }
+
+    #skills .card {
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        background-color: #2c2c2c !important;
+        color: #e9ecef !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #skills .card-body {
+        padding: 16px; /* 1rem converted to px */
+    }
+
+.skill-icon {
+    font-size: 48px; /* 3rem converted to px */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+    .skill-icon:hover {
+        transform: scale(1.1);
+    }
+
+.progress {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar {
+    border-radius: 5px;
+}
+
+.card-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px; /* 1.1rem converted to px */
+    letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.btn-outline-light {
+    border: 2px solid rgba(230, 126, 34, 0.85);
+    color: rgba(230, 126, 34, 0.85);
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-outline-light:hover {
+        background-color: rgba(230, 126, 34, 1);
+        color: #fff;
+        transform: scale(1.05);
+    }
+
+    .btn-outline-light:active {
+        transform: scale(0.97);
+        background-color: #cf711c;
+        color: white;
+    }
+
+
+/* Footer */
+footer {
+    /*background-color: rgba(240, 240, 240, 0.85) !important;*/ /* Light transparency for the footer */
+    color: #b0b0b0;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-top: 5px solid #333;
+}
+
+
+    footer p {
+        margin-bottom: 0;
+        font-size: 14px; /* 0.9rem converted to px */
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+.social-icons .social-icon {
+    font-size: 25px; /* 1.6rem converted to px */
+    color: rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+    .social-icons .social-icon:hover {
+        color: #e67e22 !important;
+        transform: translateY(-3px);
+    }
+
+/* Projects */
+/* Projects */
+#projects {
+    background-color: transparent;
+    padding-top: 64px; /* 4rem converted to px */
+    padding-bottom: 64px; /* 4rem converted to px */
+    color: #e67e22; /* Change text color to match Skills section */
+    flex-grow: 1;
+}
+
+    #projects .container {
+        background-color: rgba(33, 33, 33, 0.85); /* Same effect as Skills section */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Same box-shadow as Skills section */
+    }
+
+    #projects .card {
+        background-color: #2c2c2c !important; /* Same background color for cards */
+        color: #e9ecef !important; /* Text color to match Skills section */
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
     #projects .card-body {
-        padding: 25px; /* Increased padding inside card body */
-        flex-grow: 1; /* Allow card body to take available space */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* Push description and table apart if needed */
+        padding: 16px; /* Same padding for card body */
     }
+
+.card-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px; /* Matching font size with Skills section */
+    letter-spacing: 0.5px;
+}
+
 .project-toggle {
     cursor: pointer;
-    text-decoration: none; /* Remove default underline */
-    color: #28a745; /* Make the title green by default */
-    font-size: 1.5rem; /* Slightly larger title */
-    margin-bottom: 15px; /* Space below title */
-    display: block; /* Ensure full click area */
+    text-decoration: none;
+    color: #e67e22; /* Color to match Skills section */
+    font-size: 24px; /* Matching font size for toggles */
+    margin-bottom: 15px;
+    display: block;
     transition: color 0.3s ease;
 }
 
     .project-toggle:hover {
-        color: #2ecc40 !important; /* Brighter green on hover */
+        color: #ffa94d !important; /* Hover effect matching Skills section */
     }
 
 .project-details {
     display: none;
     margin-top: 15px;
-    padding-top: 15px; /* More padding above border */
+    padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
     .project-details table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 10px; /* Space above table */
+        margin-top: 10px;
     }
 
     .project-details td {
-        padding: 10px 0; /* More padding for table cells */
+        padding: 5px 0;
         vertical-align: top;
-        font-size: 0.95rem; /* Slightly larger text */
+        text-align: left !important;
+        font-size: 15px; /* Adjusted font size */
         line-height: 1.6;
-        color: #cccccc; /* Lighter text for details */
+        color: #cccccc;
     }
 
         .project-details td:first-child {
             font-weight: bold;
-            width: 25%; /* Adjust width for consistency */
-            min-width: 90px;
-            color: #e0e0e0; /* Brighter color for labels */
+            width: 25%;
+            margin-bottom: 5px;
+            color: #fff !important;
         }
 
-
-/* Contact Page Specific Styles (from contact.html) */
-#contact {
-    background-color: transparent; /* Transparent to show body gradient */
-    flex-grow: 1;
-    padding-top: 5rem; /* Adjust padding for contact section */
-    padding-bottom: 5rem;
+.col-md-4 {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 1;
 }
 
-    #contact .container form {
-        background-color: #212121 !important; /* Solid dark background for the form */
-        color: #f8f9fa !important; /* Light text for form */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.projects-blur.blur-active > .row > .col-md-4:not(.focused) {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.4;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+.col-md-4.focused {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 90% !important;
+    max-width: 700px !important;
+    z-index: 1050 !important;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    cursor: default;
+    opacity: 1;
+    animation: fadeInScale 0.4s ease forwards;
+    transform-origin: center center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+    .col-md-4.focused .project-details {
+        display: block;
     }
 
-    #contact .form-label {
-        color: #e9ecef; /* Ensure labels are light on dark form */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
     }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* Contact */
+#contact .container form {
+    background-color: #212121 !important;
+    color: #f8f9fa !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#contact .form-label {
+    color: #e9ecef;
+}
+
+#contact .form-control {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    color: #f8f9fa;
+    border-radius: 6px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+    #contact .form-control:focus {
+        border-color: #e67e22;
+        box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
+    }
+
+#contact button {
+    background-color: #e67e22;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+    #contact button:hover {
+        background-color: #cf711c;
+    }
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: #e67e22;
+    opacity: 0.4;
+}
