@@ -1,0 +1,38 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+
+# Environment files
+.env
+.env.*
+
+# Copilot indices and related files
+*.copilot*
+
+# VSCode settings
+.vscode/
+
+# Misc
+*.swp
+*.swo
+
+# Ignore OneDrive temp files
+~$*
+
+# Ignore by default, but allow manual add with -f
+# Uncomment the next line if you want to ignore all Copilot index files by default
+# *.copilot*
