@@ -18,9 +18,9 @@ $(document).ready(function () {
 
 
 
-//Projects page scripts
+    //Projects page scripts
 
-//blur and bring into focus
+    //blur and bring into focus
     $(document).ready(function () {
         // Make the entire .col-md-4 clickable
         $('.col-md-4').click(function () {
@@ -56,39 +56,49 @@ $(document).ready(function () {
 
 
 
-//Contact page scripts
-// Handle form submission
-$('#contactForm').on('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission
+    //Contact page scripts
+    // Handle form submission
+    (function () {
+        'use strict';
+        const forms = document.querySelectorAll('.needs-validation');
+        Array.from(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
 
-    const form = $(this);
+    // Form submission handler
+    $('#contactForm').submit(function (e) {
+        e.preventDefault();
 
-    // Bootstrap's client-side validation
-    if (form[0].checkValidity() === false) {
-        event.stopPropagation(); // Stop the event if form is invalid
-    }
-    form.addClass('was-validated'); // Add class to show validation feedback
+        const name = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const message = $('#message').val().trim();
 
-    if (form[0].checkValidity()) {
-        // All fields are valid, proceed with AJAX
-        const formData = form.serialize(); // Get form data
+        if (!name || !email || !message) {
+            $('#formResponse').html('<div class="text-danger">All fields are required.</div>');
+            return;
+        }
 
-        // Show a loading message
-        $('#formResponse').html('<div class="alert alert-info">Sending message...</div>');
+        // Retrieve existing messages
+        const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
 
-        // Simulate AJAX request
-        setTimeout(function () {
-            // Simulate a successful response
-            const success = Math.random() > 0.2; // 80% chance of success
+        // Add new message
+        messages.push({ name, email, message });
 
-            if (success) {
-                $('#formResponse').html('<div class="alert alert-success">Message sent successfully! Thank you for contacting me.</div>');
-                form[0].reset(); // Clear the form fields
-                form.removeClass('was-validated'); // Remove validation feedback
-            } else {
-                $('#formResponse').html('<div class="alert alert-danger">Failed to send message. Please try again later.</div>');
-            }
-        }, 2000); // Simulate network delay of 2 seconds
-    }
-});
+        // Save back to localStorage
+        localStorage.setItem('contactMessages', JSON.stringify(messages));
+
+        // Feedback to user
+        $('#formResponse').html('<div class="text-success">Thank you! Your message has been saved locally.</div>');
+
+        // Clear form
+        $('#contactForm')[0].reset();
+        $('#contactForm').removeClass('was-validated');
+    });
 });
